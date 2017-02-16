@@ -6,10 +6,5 @@ npm install
 npm install typescript
 - could include that in devdependencies but usually it's already installed :)
 
--- node node_modules/typescript/bin/tsc
-- to build it
-
-npm install awesome-typescript-loader --save
-
-node_modules\.bin\webpack main.ts bundle.js
+node node_modules/typescript/bin/tsc
 - to build it
