@@ -4,17 +4,24 @@ import { MockData } from 'mockdata/mock-data'; // "mockdata" is mapped by System
 @Component({
   selector: 'TableView',
   template: `
-<div className="table-responsive">
-<table className="table data" id="myTable">
+<div class="table-responsive">
+<table class="table data" id="myTable">
   <thead>
         <tr>
-                <td> column.name </td>
+                <td>Название </td>
+                <td>Цена</td>
+                <td>Класс нагрузки</td>
+                <td>Фаска</td>
+                <td>Картинка</td>
         </tr>
   </thead>
   <tbody>
         <tr *ngFor="let item of items">
-                <td> {{item.title}}
-                </td>
+                <td>{{item.title}}</td>
+                <td>{{item.price}}</td>
+                <td>{{item.loadclass}}</td>
+                <td>{{item.chamfer}}</td>
+                <td><img src="{{item.imgURL}}"/></td>
         </tr>
   </tbody>
 </table>
@@ -23,11 +30,15 @@ import { MockData } from 'mockdata/mock-data'; // "mockdata" is mapped by System
 })
 export class TableView {
   constructor() {
-  let data = MockData;
-    this.items = [
-      {id: 1, title: "x", price: 1, loadclass: 1, chamfer: true, imgURL: null},
-      {id: 2, title: "y", price: 1, loadclass: 1, chamfer: true, imgURL: null}
-    ];
+    let payload : any = MockData;
+    this.items = payload.page.map((entry : any): Item => ({
+        id: entry.id,
+        title: entry["Название"],
+        price: entry["Цена"],
+        loadclass: entry["Класс нагрузки"],
+        chamfer: entry["Фаска"],
+        imgURL: entry["Картинка"]
+    })).slice(1,12);
   }
 
   items: Item[];
