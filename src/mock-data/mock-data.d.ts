@@ -1,4 +1,1 @@
-declare module 'MockData' {
-  var mockdata: any;
-  export = mockdata;
-}
+export const MockData: any;
