@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { MockData } from 'mockdata/mock-data'; // "mockdata" is mapped by SystemJS according to its config
+import { Component, Input } from '@angular/core';
+import { Item }  from './data';
 
 @Component({
   selector: 'TableView',
@@ -29,26 +29,5 @@ import { MockData } from 'mockdata/mock-data'; // "mockdata" is mapped by System
   `
 })
 export class TableView {
-  constructor() {
-    let payload : any = MockData;
-    this.items = payload.page.map((entry : any): Item => ({
-        id: entry.id,
-        title: entry["Название"],
-        price: entry["Цена"],
-        loadclass: entry["Класс нагрузки"],
-        chamfer: entry["Фаска"],
-        imgURL: entry["Картинка"]
-    })).slice(1,12);
-  }
-
-  items: Item[];
-}
-
-export class Item {
-  id: number;
-  title: string;
-  price: number;
-  loadclass: number;
-  chamfer: boolean;
-  imgURL: string;
+  @Input() items: Item[];
 }
