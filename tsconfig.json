@@ -11,8 +11,7 @@
     "suppressImplicitAnyIndexErrors": true,
     "baseUrl": "src", // This must be specified if "paths" is
     "paths": {
-      "app/*": ["app/*"],
-      "mockdata/*": ["mock-data/*"]
+      "app/*": ["app/*"]
      },
     "outDir": "js"
   }

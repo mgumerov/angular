@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 import { TableView }  from './table-view';
-import { MockData } from 'mockdata/mock-data'; // "mockdata" is mapped by SystemJS according to its config
-import { provider, Item }  from './data';
+import { DataProvider, Item }  from './data';
 
 @Component({
   selector: 'Workspace',
@@ -9,6 +8,15 @@ import { provider, Item }  from './data';
     <TableView ng-if="true" [items]="data"></TableView>
   `
 })
-export class Workspace {
-  data : Item[] = provider.query(1, 12);
+@Injectable()
+export class Workspace implements OnInit {
+  constructor(private provider: DataProvider) {}
+
+  data : Item[];
+
+  ngOnInit() {
+    this.provider.query(1, 12)
+         .then((result : Item[]) => (this.data = result),
+               (error : any) => console.error(error));
+  }
 }

@@ -1,5 +1,4 @@
-System.register([], function (exports) {
-mockdata = {
+{
 "total": 856,
 "page":
 [
@@ -24828,7 +24827,4 @@ mockdata = {
    "Картинка": "http://popolam-nn.ru/i/o/2e/PA_100_PA_big.jpg"
  }
 ]
-};
-
-exports("MockData", mockdata);
-});
+}
