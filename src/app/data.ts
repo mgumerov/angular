@@ -34,3 +34,9 @@ export class Item {
   chamfer: boolean;
   imgURL: string;
 }
+
+export abstract class Presenter {
+  abstract getName(): string;
+  abstract getComponent(): any;
+}
+

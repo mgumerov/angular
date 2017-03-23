@@ -29,5 +29,7 @@ import { Item }  from './data';
   `
 })
 export class TableView {
-  @Input() items: Item[];
+  @Input() set items(_items: Item[])  {
+    alert(_items);
+  }
 }
