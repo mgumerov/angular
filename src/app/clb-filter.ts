@@ -3,9 +3,9 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'CLBFilter',
   template: `
-  <div className="form-group dropdown ">
-    <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">{{title}}<span className="caret"></span></button>
-    <ul className="dropdown-menu">
+  <div class="form-group dropdown ">
+    <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">{{title}}<span class="caret"></span></button>
+    <ul class="dropdown-menu">
       <li><a href="#" class="small" tabIndex="-1">Все</a></li>
         <li *ngFor="let item of items"><a href="#" class="small" tabIndex="-1">
           <input type="checkbox" checked readOnly/>&nbsp;{{item.title}}</a></li>
