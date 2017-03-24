@@ -12,7 +12,7 @@ import { CLBFilter } from './clb-filter';
   <div class="form-group">
   Фильтры:
   </div>
-  <CLBFilter [title]="'Класс нагрузки'" [items]='[ {"31":31, "32":32, "33":33, "34":34} ]'></CLBFilter>
+  <CLBFilter [title]="'Класс нагрузки'" [items]='{"31":31, "32":32, "33":33, "34":34}'></CLBFilter>
 </div>
 
 <p class="debug" id="urldebug"></p>
@@ -22,7 +22,7 @@ import { CLBFilter } from './clb-filter';
 
 <div class="col-md-12 text-center">
 <ul class="pagination pull-left">
-    <li class="page-item view-mode" *ngFor="let presenter of presenters"><a class="page-link" href = "#">{{presenter.getName()}}</a></li>
+    <li class="page-item view-mode" *ngFor="let p of presenters"><a class="page-link" href = "#" (click)="presenter = p"><!--span class="glyphicon {{p.getGlyphName()}}"></span-->{{p.getName()}}</a></li>
 </ul>
 
 <!--Pagination thisPage={this.state.page} lastPage={this.state.pageCnt} onClick={this.onPagerClick}/-->

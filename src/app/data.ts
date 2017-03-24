@@ -37,4 +37,5 @@ export class Item {
 
 export abstract class Presenter {
   abstract getName(): string;
+  abstract getGlyphName(): string;
 }

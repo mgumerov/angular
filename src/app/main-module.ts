@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 
-
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http'; //carries provider for Http
@@ -12,9 +11,10 @@ import { Presenter }  from './data';
 import { TilePresenter }  from './tile-presenter';
 import { TablePresenter }  from './table-presenter';
 import { CLBFilter }  from './clb-filter';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
-  imports:      [ BrowserModule, HttpModule ],
+  imports:      [ BrowserModule, HttpModule, NgbModule.forRoot() ],
   declarations: [ Workspace, TableView, CLBFilter, TileView ],
   entryComponents: [TableView], //components created directly by their class, not through selector in other component's template
   providers:    [ 

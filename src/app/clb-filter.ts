@@ -1,14 +1,15 @@
 import { Component, Input } from '@angular/core';
+import { NgbDropdownConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'CLBFilter',
   template: `
-  <div class="form-group dropdown ">
-    <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">{{title}}<span class="caret"></span></button>
+  <div ngbDropdown class="d-inline-block" #myDrop="ngbDropdown">
+    <button type="button" class="btn btn-default btn-sm" ngbDropdownToggle>{{title}}</button> 
     <ul class="dropdown-menu">
-      <li><a href="#" class="small" tabIndex="-1">Все</a></li>
-        <li *ngFor="let item of items"><a href="#" class="small" tabIndex="-1">
-          <input type="checkbox" checked readOnly/>&nbsp;{{item.title}}</a></li>
+      <li class="dropdown-item"><a href="#" class="small" tabIndex="-1" (click)="$event.stopPropagation();">Все</a></li>
+      <li *ngFor="let item of _items" class="dropdown-item"><a href="#" class="small" tabIndex="-1">
+        <input type="checkbox" checked readOnly/>&nbsp;{{item.title}}</a></li>
     </ul>
   </div>
   `
@@ -22,6 +23,10 @@ export class CLBFilter {
   }
 
   @Input() title: string;
+
+  //constructor(config: NgbDropdownConfig) {
+  //  config.autoClose = false;
+  //}
 }
 
 class Item {
